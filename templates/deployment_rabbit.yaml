@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: {{ .Values.podName }}-rbmq
+  namespace: {{ .Values.namespace }}
+  labels:
+    k8s-app: {{ .Values.podName }}-rbmq
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: {{ .Values.podName }}-rbmq
+  template:
+    metadata:
+      labels:
+        k8s-app: {{ .Values.podName }}-rbmq
+    spec:
+      imagePullSecrets:
+      - name: {{ .Values.pullSecret }}
+      containers:
+      - image: {{ .Values.rbmqImage }}
+        name: {{ .Values.podName }}-rbmq
+        imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: 0.2
+            memory: 150

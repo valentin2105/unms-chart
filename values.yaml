@@ -1,0 +1,19 @@
+podName: unms
+
+image: ubnt/unms
+tag: 0.10.4
+
+rbmqImage: rabbitmq:latest
+DBimage: private-registry/docker/postgres:latest
+redisImage: private-registry/docker/redis:latest
+pullSecret: dntlpw
+
+replicas: 1
+vhost: unms.domain.tld
+
+volumeSize: 2Gi
+DBSize: 10Gi
+
+postgresDBuser: unms
+postgresDBname: unms
+postgresDBpassword: PassWord

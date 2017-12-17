@@ -1,0 +1,32 @@
+
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ .Release.Namespace }}-storage
+  namespace: {{ .Release.Namespace }}
+  labels:
+    identifier: storage
+spec:
+  accessModes:
+  - ReadWriteMany      
+  resources:
+     requests:
+       storage: {{ .Values.volumeSize }}
+  selector: 
+    matchLabels: 
+      identifier: storage
+---
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ .Release.Namespace }}-db
+  namespace: {{ .Release.Namespace }}
+  labels:
+    identifier: db
+spec:
+  accessModes:
+  - ReadWriteMany      
+  resources:
+     requests:
+       storage: {{ .Values.DBsize }}
+  selector: 
+    matchLabels: 
+      identifier: db
