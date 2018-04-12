@@ -4,12 +4,12 @@ image: ubnt/unms
 tag: 0.10.4
 
 rbmqImage: rabbitmq:latest
-DBimage: private-registry/docker/postgres:latest
-redisImage: private-registry/docker/redis:latest
-pullSecret: dntlpw
+DBimage: postgres:latest
+redisImage: redis:latest
 
 replicas: 1
 vhost: unms.domain.tld
+clusterDomain: cluster.local
 
 volumeSize: 2Gi
 DBSize: 10Gi

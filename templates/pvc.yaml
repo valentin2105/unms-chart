@@ -27,7 +27,7 @@ spec:
   - ReadWriteMany      
   resources:
      requests:
-       storage: {{ .Values.DBsize }}
+       storage: {{ .Values.DBSize }}
   selector: 
     matchLabels: 
       identifier: db
