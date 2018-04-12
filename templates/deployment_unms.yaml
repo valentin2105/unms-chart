@@ -36,11 +36,11 @@ spec:
         - name: DEMO
           value: "false"
         - name: UNMS_REDISDB_HOST
-          value: "unms-redis.{{ .Release.namespace }}.svc.k8s.{{ .Values.clusterDomain}}"
+          value: "unms-redis.{{ .Release.namespace }}.k8s.svc.{{ .Values.clusterDomain}}"
         - name: UNMS_PG_HOST
-          value: "unms-db.{{ .Release.namespace }}.svc.k8s.{{ .Values.clusterDomain}}"
+          value: "unms-db.{{ .Release.namespace }}.k8s.svc.{{ .Values.clusterDomain}}"
         - name: UNMS_RABBITMQ_HOST
-          value: "unms-rbmq.{{ .Release.namespace }}.svc.k8s.{{ .Values.clusterDomain}}"
+          value: "unms-rbmq.{{ .Release.namespace }}.k8s.svc.{{ .Values.clusterDomain}}"
         volumeMounts:
         - name: storage-folder
           mountPath: /home/app/unms/data
